@@ -38,7 +38,7 @@ A few live streaming applications are already capable of using externally source
 | vMix | XML, RSS |
 | Tricaster | RSS |
 | OBS | - | plug-in could be developed |
-| Wirecast | - | can use RSS, but no refresh option |
+| Wirecast | - | can sort of use RSS, but no refresh option |
 | VidBlasterX | ? |  |
 | Livestream producer | ? |  |
 
@@ -51,7 +51,7 @@ Empty lines must contain at least one SPACE character (U+0020) to ensure that th
 
 To facilitate interoperability it is adviced to include all the tags, and their names, as used in the examples below.
 ### Basic XML-file
-This example is also available for testing purposes at http://www.westreamu.com/sandbox/GETlivecap-XML-test.xml (use XPATH: ```//caption``` for parsing)
+This example is also available for testing purposes at https://www.westreamu.com/sandbox/GETlivecap-XML-test.xml (use XPATH: ```//caption``` for parsing)
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <caption>
@@ -72,7 +72,7 @@ A multi-line caption should always contain the specified number of lines, even i
 
 A couple of the live streaming apps that currently support RSS utilize at least the item elements *title*, *link*, *pubDate*, and *description*. Therefore GETlivecap specify that these four elements should be used to support up to four lines of text in a captions block.
 
-The example below is also available for testing purposes at http://www.westreamu.com/sandbox/GETlivecap-RSS-test.xml
+The example below is also available for testing purposes at https://www.westreamu.com/sandbox/GETlivecap-RSS-test.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -97,3 +97,5 @@ A multi-line caption should always contain all item elements needed for the spec
     <pubDate> </pubDate>
 </item>
 ```
+## License
+GETlivecap and the data in this repo is available for use under a CC BY 4.0 license (https://creativecommons.org/licenses/by/4.0/). For attribution just mention somewhere that the source is  For attribution just mention somewhere that the source is https://github.com/richardgatarski/GETlivecap.
