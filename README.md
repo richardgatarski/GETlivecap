@@ -1,7 +1,9 @@
-# GETlivecap
+# GETlivecap v1.0.0
 GETlivecap is a proposed standard for an open, simple, and effective method with which a *live stream production* can GET real-time captions from a *captions server* via HTTP requests.
 
 Some live streaming applications are already capable of using externally sourced data of different types, including plain text marked up as XML. Typically these application use the HTTP GET request method to pull XML formatted data from a web server. This fact constitutes the foundation for GETlivecap.
+
+A short demonstration of GETlivecap in use is available at https://youtu.be/ZlJcfdMFh7I.
 ## Captions
 The *captioning* terminology is used here as a synonym to *subtitling*, even though the wider meanings of those two terms differ. One or more lines of plain text consitutes a *caption*. GETlivecap does not support how the text is formatted or where the captions are positioned. Typically the number of lines, and a maximum line length, are determined by the live streaming producer.
 
@@ -13,7 +15,9 @@ The captions server is here understood as a part of a cloud service. Its server 
 
 The server constantly updates the caption based on an incoming text flow created by captioners. Captioners can be humans (compare [CART](https://en.wikipedia.org/wiki/Communication_access_real-time_translation) or [STTR](https://en.wikipedia.org/wiki/Speech-to-text_reporter)) or Automatic Speech Recognition applications (compare [ASR](https://en.wikipedia.org/wiki/Speech_recognition)).
 
-It is beyond the GETlivecap standard to specify how the captioners hear the live event and how the real-time text is created. The most simple method might be that the captioners are at the event venue and uses a QWERTY keyboard to send text to the server. 
+It is beyond the GETlivecap standard to specify how the captioners hear the live event and how the real-time text is created. The most simple method might be that the captioners are at the event venue and uses a QWERTY keyboard to send text to the server.
+
+A captions server may use GET parameters in the query string to control various functionality, although that is not specified by GETlivecap. Such parameters could for example be settings for user and event specifications, response type (RSS or XML), number of lines, line length, scrolling captions, etc.
 ## The live streaming production
 The live streaming production is assumed to use applications like [vMix](https://www.vmix.com/), [Tricaster](https://www.newtek.com/tricaster/), [OBS](https://obsproject.com/sv), [Wirecast](https://www.telestream.net/wirecast/), [VidBlasterX](https://www.vidblasterx.com/), [Livestream producer](https://livestream.com/producer), etc. to stream its output live on the web. 
 
@@ -47,8 +51,6 @@ Basic XML is preferred because of its simplicity. RSS is included only because s
 
 It is adviced that the encoding format is UTF-8 to support international characters. Note that five characters (<&>"') needs special treatment by the server generating the XML file (see the [XML FAQ Special characters](http://xml.silmaril.ie/specials.html)).
 
-Empty lines must contain at least one SPACE character (U+0020) to ensure that the streaming production app removes any previous text on that line.
-
 To facilitate interoperability it is adviced to include all the tags, and their names, as used in the examples below.
 ### Basic XML-file
 This example is also available for testing purposes at https://www.westreamu.com/sandbox/GETlivecap-XML-test.xml (use XPATH: ```//caption``` for parsing)
@@ -63,8 +65,8 @@ A multi-line caption should always contain the specified number of lines, even i
 ```xml
 <caption>
   <line1>I'm just saying that</line1>
-  <line2> </line2>
-  <line3> </line3>
+  <line2></line2>
+  <line3></line3>
 </caption>
 ```
 ### RSS-file
@@ -94,7 +96,7 @@ A multi-line caption should always contain all item elements needed for the spec
 <item>
     <title>I'm just saying that this looks</title>
     <link>like a fantastic</link>
-    <pubDate> </pubDate>
+    <pubDate></pubDate>
 </item>
 ```
 ## License
