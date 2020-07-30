@@ -53,7 +53,7 @@ It is adviced that the encoding format is UTF-8 to support international charact
 
 To facilitate interoperability it is adviced to include all the tags, and their names, as used in the examples below.
 ### Basic XML-file
-This example is also available for testing purposes at https://www.westreamu.com/sandbox/GETlivecap-XML-test.xml (use XPATH: ```//caption``` for parsing)
+This example below is also available for testing purposes at https://www.westreamu.com/sandbox/GETlivecap-XML-test.xml (use XPATH: ```//caption``` for parsing)
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <caption>
@@ -61,7 +61,7 @@ This example is also available for testing purposes at https://www.westreamu.com
   <line2>followed by a second line.</line2>
 </caption>
 ```
-A multi-line caption should always contain the specified number of lines, even if some of them are empty. For example, here a three line caption, of which two lines are empty (i.e. contains a SPACE):
+A multi-line caption should always contain the specified number of lines, even if some of them are empty. For example, here a three line caption, of which two lines are empty:
 ```xml
 <caption>
   <line1>I'm just saying that</line1>
@@ -69,6 +69,7 @@ A multi-line caption should always contain the specified number of lines, even i
   <line3></line3>
 </caption>
 ```
+A live demo (courtesy of [Svensk Skrivtolkning](https://skrivtolkning.se/)) with two lines is available for testing purposes at https://illumitype.se/distansportalen/demo?view=glc, (use XPATH: ```//caption``` for parsing).
 ### RSS-file
 [RSS](http://www.rssboard.org/rss-specification) is a dialect of XML, developed for other uses. Therefore, most of its meta data is ignored here. Even so it is adviced to include the RSS-required channel elements (title, description, link) as the live streaming app may expect them. The content of those three elements may be arbitrary, although the link should be formatted as a url (in case the live streaming app parse it).
 
